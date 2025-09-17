@@ -1,0 +1,27 @@
+/************************
+    REGOLE GENERALI
+*************************/
+
+/** Reset Pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
+    font-size: 1rem;
+    font-family: "Edu TAS Beginner", sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+/* Font da utilizzare per le date 
+    font-family: "Sometype Mono", monospace;
+*/
