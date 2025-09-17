@@ -16,12 +16,73 @@ html {
 body {
     font-size: 1rem;
     font-family: "Edu TAS Beginner", sans-serif;
-}
-
-h1 {
-    font-size: 3rem;
+    background-image: url(../img/cork.png)
 }
 
 /* Font da utilizzare per le date 
     font-family: "Sometype Mono", monospace;
 */
+
+/**************************
+    CLASSI RIUTILIZZABILI
+**************************/
+.container {
+    max-width: 70%;
+    margin: 50px auto;
+
+    /* Debug */
+    /* height: 600px; */
+    /* background-color: red; */
+}
+
+/******************
+    INTESTAZIONE
+******************/
+header {
+    height: 100px;
+    background-image: url(../img/wall.png);
+}
+
+h1 {
+    font-size: 5rem;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+}
+
+/******************
+    SEZIONE FOTO
+******************/
+
+/** Contenitori */
+    .card {
+        width: 267px;
+        min-height: 235px;
+        background-color: white;
+
+        /* Position relative per pin */
+        position: relative;
+    }
+
+    .container-foto {
+        width: 90%;
+        margin: 0 auto ;
+    }
+
+/** Pin card */
+#pin-card {
+    display: block;
+    max-width: 27px;
+
+    /* Position */
+    position: absolute;
+    left: 50%;
+    top: -3%;
+    transform: translate(-50%, 0);
+}
+
+/** Foto */
+.foto {
+    max-width: 100%;
+    margin: 10px 0 15px;
+}
