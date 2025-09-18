@@ -166,6 +166,16 @@ button {
     width: 70%;
 }
 
+/**************
+    HOVER
+**************/
+.card:hover {
+    transform: rotate(10deg);
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 5px 5px rgb(218, 218, 218);
+}
+
 /****************************************************  VERSIONE TABLET  *************************************************************/
 @media screen and (max-width: 790px) {
 
