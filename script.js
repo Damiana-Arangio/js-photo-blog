@@ -22,8 +22,8 @@ axios.get(enpointPictures)
             creaCard(datoCard);
         });
 
-        // Aggiungo le cards al DOM
-        // sezioneCard.innerHTML = items;
+        // Aggiungo elementi al DOM
+        sezioneCard.innerHTML = items;                  
     })
 
     /* Codice da eseguire in caso di errore */
@@ -35,5 +35,20 @@ axios.get(enpointPictures)
     FUNZIONI
 ******************/
 function creaCard(datoCard) {
-    items += ` ${datoCard.id}`;
+    // Inverto stringa data per inserirla nell'attributo date time
+    const dataReverse = datoCard.date.split("-").reverse().join("-");
+    
+    // Aggiungo elementi card alla variabile items
+    items += ` 
+            <article class="card">
+            <img src="img/pin.svg" alt="immagine pin" class="pin-card">
+            <figure class="container-foto">
+                <img src="${datoCard.url}" alt=${datoCard.title} class="foto margin: 10px 0;">
+                <h2> ${datoCard.title} </h2>
+                <time datetime=${dataReverse} class="data">${datoCard.date}</time>
+                <figcaption class="margin-t-b-10"> Accusamus Beatae Add Facilis Cum Similique Qui Sunt </figcaption>
+            </figure>
+
+        </article>`
+    ;
 }
