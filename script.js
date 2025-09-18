@@ -6,9 +6,9 @@ const containerSezioneCard = document.getElementById("container-sezione-card"); 
 let items = "";                                                                          /* Stringa che conterrà gli elementi da aggiungere al DOM */
 
 
-/*******************
-    CREAZIONE CARD
-*******************/
+/********************
+    ELABORAZIONE
+********************/
 
 // Chiamata Ajax con Axios
 axios.get(enpointPictures)
@@ -16,22 +16,26 @@ axios.get(enpointPictures)
     /* Codice da eseguire in caso di successo */
     .then( (rispostaApiSuccess) => {
         
+        /********************
+            CREAZIONE CARD
+        ********************/
+
         // Recupero array di oggetti da API
         const datiCards = rispostaApiSuccess.data
 
         // Ciclo per creare le cards
         datiCards.forEach( (datoCard) => {
-            creaCard(datoCard);
+            generaMarkupCard(datoCard);
         });
 
-        // Aggiungo card al DOM
+        // Inserisco card nel DOM
         containerSezioneCard.innerHTML = items;
         
         /**************
             OVERLAY
         ***************/
 
-        /* Recupero card dal DOM */
+        /* Recupero tutte le card dal DOM */
         const cardCreate = document.querySelectorAll(".card");
 
         /* Chiamata funzione per gestire l'overlay*/
@@ -46,14 +50,14 @@ axios.get(enpointPictures)
 
 
 
-/*****************
+/***************
     FUNZIONI
-******************/
+****************/
 
 // Funzione che riceve i dati di una card e li concatena in una stringa "item"
-function creaCard(datoCard) {
+function generaMarkupCard(datoCard) {
 
-    // Inverto stringa data per inserirla nell'attributo date time
+    // Inverto stringa data per inserirla nell'attributo datetime di time
     const dataReverse = datoCard.date.split("-").reverse().join("-");
     
     // Aggiungo elementi card alla variabile items
@@ -81,10 +85,8 @@ function gestioneOverlay(cardCreate) {
         OVERLAY CARD
     *******************/
 
-    /* Ciclo le card per associare un evento (click) */
+    /* Ciclo per associare evento (click) ad ogni card */
     cardCreate.forEach((cardCreata) => {
-
-        console.log(cardCreata);
 
         // Associo evento (click) alla card corrente */
         cardCreata.addEventListener("click", () => {
@@ -113,32 +115,43 @@ function gestioneOverlay(cardCreate) {
     }) 
 }
 
-/* Funzione che cerca il titolo e cambia l'immagine */
+/* Funzione che recupera titolo dalla card corrente e sostituisce l'immagine */
 function cambiaImmagineCardCliccata(cardCreata) {
 
+    // Recupero testo (titolo card) dell'h2 dalla card corrente 
     const titoloCard = cardCreata.querySelector("h2").textContent.trim();
 
+    /* Recupero l'elemento <img> dell'overlay dal DOM */
+    const imgOverlay = document.querySelector(".img-overlay");
+
+    /* Confronto il titolo e sostituisco l'immagine */
     if (titoloCard === "Skate Park") {
-        console.log(titoloCard);
+        imgOverlay.src = "https://marcolanci.it/boolean/assets/pictures/1.png";
+        imgOverlay.alt = titoloCard;
     }
 
      else if (titoloCard === "Passeggiata") {
-         console.log(titoloCard);
+        imgOverlay.src = "https://marcolanci.it/boolean/assets/pictures/2.png";
+        imgOverlay.alt = titoloCard;
     }
 
     else if (titoloCard === "Alpi") {
-        console.log(titoloCard);
+        imgOverlay.src = "https://marcolanci.it/boolean/assets/pictures/3.png";
+        imgOverlay.alt = titoloCard;
     }
 
      else if (titoloCard === "Sagra") {
-         console.log(titoloCard);
+        imgOverlay.src = "https://marcolanci.it/boolean/assets/pictures/4.png";
+        imgOverlay.alt = titoloCard;
     }
 
     else if (titoloCard === "Watergun") {
-       console.log(titoloCard);
+        imgOverlay.src = "https://marcolanci.it/boolean/assets/pictures/5.png";
+        imgOverlay.alt = titoloCard;
     }
 
     else if (titoloCard === "Riviera") {
-     console.log(titoloCard);
+        imgOverlay.src = "https://marcolanci.it/boolean/assets/pictures/6.png";
+        imgOverlay.alt = titoloCard;
     }
 }
