@@ -14,25 +14,34 @@ html {
 }
 
 body {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: "Edu TAS Beginner", sans-serif;
     background-image: url(../img/cork.png)
 }
 
-/* Font da utilizzare per le date 
-    font-family: "Sometype Mono", monospace;
-*/
+h2 {
+    font-size: 2rem;
+}
+
 
 /**************************
     CLASSI RIUTILIZZABILI
 **************************/
 .container {
-    max-width: 70%;
+    max-width: 61%;
     margin: 50px auto;
 
     /* Debug */
     /* height: 600px; */
     /* background-color: red; */
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-t-b-10 {
+    margin: 10px 0;
 }
 
 /******************
@@ -51,13 +60,22 @@ h1 {
 }
 
 /******************
-    SEZIONE FOTO
+    MAIN
 ******************/
 
+/** Sezione Card */
+#sezione-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 /** Contenitori */
+
     .card {
         width: 267px;
         min-height: 235px;
+        padding-bottom: 10px;
         background-color: white;
 
         /* Position relative per pin */
@@ -70,7 +88,7 @@ h1 {
     }
 
 /** Pin card */
-#pin-card {
+.pin-card {
     display: block;
     max-width: 27px;
 
@@ -84,5 +102,11 @@ h1 {
 /** Foto */
 .foto {
     max-width: 100%;
-    margin: 10px 0 15px;
+    margin: 10px 0;
+}
+
+/** Data */
+.data {
+    font-size: 0.9rem;
+    font-family: "Sometype Mono", monospace;
 }
