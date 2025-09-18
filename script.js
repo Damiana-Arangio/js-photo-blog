@@ -33,8 +33,8 @@ axios.get(enpointPictures)
         /* Recupero card dal DOM */
         const cardCreate = document.querySelectorAll(".card");  
         
-        /* Chiamata funzione per associare l'evento alle card */
-        associaEventoCard(cardCreate);
+        /* Chiamata funzione per gestire l'overlay*/
+        gestioneOverlay(cardCreate);
 
     })
 
@@ -70,7 +70,15 @@ function creaCard(datoCard) {
 }
 
 // Funzione che gestisce l'overlay
-function associaEventoCard(cardCreate) {
+function gestioneOverlay(cardCreate) {
+
+    /* Recupero elementi dal DOM per gestire overlay */
+    const overlaySfondo = document.getElementById("overlay-sfondo");
+    const containerOverlayContent = document.getElementById("container-overlay-content");
+
+    /*******************
+        OVERLAY CARD
+    *******************/
 
     /* Ciclo le card per associare un evento (click) */
     cardCreate.forEach((cardCreata) => {
@@ -78,13 +86,26 @@ function associaEventoCard(cardCreate) {
         // Associo evento (click) alla card corrente */
         cardCreata.addEventListener("click", () => {
         
-            /* Recupero elementi dal DOM per gestire overlay */
-            const overlaySfondo = document.getElementById("overlay-sfondo");
-            const containerOverlayContent = document.getElementById("container-overlay-content");
-
             /* Rimuovo classe display-none per gestire l' overlay */
             overlaySfondo.classList.remove("display-none");
             containerOverlayContent.classList.remove("display-none");
         })
     });
+
+
+    /*********************
+        OVERLAY BOTTONE
+    **********************/
+
+    /* Recupero bottone dal DOM per gestire overlay */
+    const btn = document.getElementById("bottone");
+    btn.addEventListener("click", () => { 
+
+        /* Aggiungo classe display-none per gestire l'overlay */
+        overlaySfondo.classList.add("display-none");
+        containerOverlayContent.classList.add("display-none");
+    })
+
+    
+    
 }
