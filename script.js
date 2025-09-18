@@ -1,14 +1,9 @@
 /*****************
     DEFINIZIONI
 ******************/
-const enpointPictures = "https://lanciweb.github.io/demo/api/pictures/";    /* Endpoint API */
-const containerSezioneCard = document.getElementById("container-sezione-card");                /* Recupero elementi dal DOM */
-let items = "";                                                             /* Stringa che conterrà gli elementi da aggiungere al DOM */
-/* 
-    Testata API su Postman: 
-    restituisce un array di 6 oggetti, 
-    ognuno contenente 4 proprietà: id, title, date, url
-*/
+const enpointPictures = "https://lanciweb.github.io/demo/api/pictures/";                /* Endpoint API */
+const containerSezioneCard = document.getElementById("container-sezione-card");         /* Recupero elementi dal DOM */
+let items = "";                                                                          /* Stringa che conterrà gli elementi da aggiungere al DOM */
 
 // Chiamata Ajax con Axios
 axios.get(enpointPictures)
