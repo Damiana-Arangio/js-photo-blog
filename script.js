@@ -30,9 +30,10 @@ axios.get(enpointPictures)
         /**************
             OVERLAY
         ***************/
+
         /* Recupero card dal DOM */
-        const cardCreate = document.querySelectorAll(".card");  
-        
+        const cardCreate = document.querySelectorAll(".card");
+
         /* Chiamata funzione per gestire l'overlay*/
         gestioneOverlay(cardCreate);
 
@@ -83,12 +84,17 @@ function gestioneOverlay(cardCreate) {
     /* Ciclo le card per associare un evento (click) */
     cardCreate.forEach((cardCreata) => {
 
+        console.log(cardCreata);
+
         // Associo evento (click) alla card corrente */
         cardCreata.addEventListener("click", () => {
         
             /* Rimuovo classe display-none per gestire l' overlay */
             overlaySfondo.classList.remove("display-none");
             containerOverlayContent.classList.remove("display-none");
+
+            /* Cambio immagine in base alla foto selezionata */
+            cambiaImmagineCardCliccata(cardCreata);
         })
     });
 
@@ -104,8 +110,35 @@ function gestioneOverlay(cardCreate) {
         /* Aggiungo classe display-none per gestire l'overlay */
         overlaySfondo.classList.add("display-none");
         containerOverlayContent.classList.add("display-none");
-    })
+    }) 
+}
 
-    
-    
+/* Funzione che cerca il titolo e cambia l'immagine */
+function cambiaImmagineCardCliccata(cardCreata) {
+
+    const titoloCard = cardCreata.querySelector("h2").textContent.trim();
+
+    if (titoloCard === "Skate Park") {
+        console.log(titoloCard);
+    }
+
+     else if (titoloCard === "Passeggiata") {
+         console.log(titoloCard);
+    }
+
+    else if (titoloCard === "Alpi") {
+        console.log(titoloCard);
+    }
+
+     else if (titoloCard === "Sagra") {
+         console.log(titoloCard);
+    }
+
+    else if (titoloCard === "Watergun") {
+       console.log(titoloCard);
+    }
+
+    else if (titoloCard === "Riviera") {
+     console.log(titoloCard);
+    }
 }
