@@ -2,7 +2,7 @@
     DEFINIZIONI
 ******************/
 const enpointPictures = "https://lanciweb.github.io/demo/api/pictures/";    /* Endpoint API */
-const sezioneCard = document.getElementById("sezione-card");                /* Recupero elementi dal DOM */
+const containerSezioneCard = document.getElementById("container-sezione-card");                /* Recupero elementi dal DOM */
 let items = "";                                                             /* Stringa che conterrà gli elementi da aggiungere al DOM */
 /* 
     Testata API su Postman: 
@@ -23,7 +23,7 @@ axios.get(enpointPictures)
         });
 
         // Aggiungo elementi al DOM
-        sezioneCard.innerHTML = items;                  
+        containerSezioneCard.innerHTML = items;                  
     })
 
     /* Codice da eseguire in caso di errore */
@@ -43,11 +43,10 @@ function creaCard(datoCard) {
             <article class="card">
             <img src="img/pin.svg" alt="immagine pin" class="pin-card">
             <figure class="container-foto">
-                <img src="${datoCard.url}" alt=${datoCard.title} class="foto margin: 10px 0;">
-                <h2> ${datoCard.title} </h2>
-                <time datetime=${dataReverse} class="data">${datoCard.date}</time>
-                <figcaption class="margin-t-b-10"> Accusamus Beatae Add Facilis Cum Similique Qui Sunt </figcaption>
+                <img src="${datoCard.url}" alt=${datoCard.title} class="foto">
             </figure>
+            <h2 class="padding-left-10"> ${datoCard.title} </h2>
+            <time datetime=${dataReverse} class="data padding-left-10">${datoCard.date}</time>
 
         </article>`
     ;

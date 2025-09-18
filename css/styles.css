@@ -1,3 +1,5 @@
+/****************************************************  VERSIONE DESKTOP  *************************************************************/
+
 /************************
     REGOLE GENERALI
 *************************/
@@ -27,17 +29,15 @@ h2 {
 /**************************
     CLASSI RIUTILIZZABILI
 **************************/
-.container {
-    max-width: 61%;
-    margin: 50px auto;
-}
 
-.margin-bottom-10 {
-    margin-bottom: 10px;
-}
+/* Spaziature */
 
 .margin-t-b-10 {
     margin: 10px 0;
+}
+
+.padding-left-10 {
+    padding-left: 10px;
 }
 
 /******************
@@ -56,20 +56,38 @@ h1 {
 }
 
 /******************
-    MAIN
+        MAIN
 ******************/
 
-/** Sezione Card */
-#sezione-card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-/** Contenitori */
+/** CONTENITORI */
 
+    /* Pagina */
+    .container {
+        max-width: 100%;
+        margin: 50px auto;
+    }
+
+    /** Sezione Card */
+    #container-sezione-card {
+        max-width: 65%;
+        margin: 0 auto;
+
+        /* Proprietà Flex */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        gap: 20px;
+    }
+
+    .container-foto {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+/** CARD */
     .card {
-        width: 267px;
+        flex-basis: calc( (100% - 40px)/3);
         min-height: 235px;
         padding-bottom: 10px;
         background-color: white;
@@ -78,31 +96,59 @@ h1 {
         position: relative;
     }
 
-    .container-foto {
-        width: 90%;
-        margin: 0 auto ;
+    /* Pin card */
+    .pin-card {
+        display: block;
+        max-width: 27px;
+
+        /* Position */
+        position: absolute;
+        left: 50%;
+        top: -3%;
+        transform: translate(-50%, 0);
     }
 
-/** Pin card */
-.pin-card {
-    display: block;
-    max-width: 27px;
+    /* Foto */
+    .foto {
+        max-width: 100%;
+        margin: 10px 0;
+    }
 
-    /* Position */
-    position: absolute;
-    left: 50%;
-    top: -3%;
-    transform: translate(-50%, 0);
+    /* Data */
+    .data {
+        font-size: 0.9rem;
+        font-family: "Sometype Mono", monospace;
+    }
+
+/****************************************************  VERSIONE TABLET  *************************************************************/
+@media screen and (max-width: 790px) {
+
+/******************
+        MAIN
+******************/
+
+/** CONTENITORI */
+
+    /** Sezione Card */
+    #container-sezione-card {
+        max-width: 80%;
+    }
+
+    /** CARD */
+    .card {
+        flex-basis: calc((100% - 40px)/2);
+    }
+
 }
+/**************************************************** VERSIONE SMARTPHONE *************************************************************/
+@media screen and (max-width: 517px) {
 
-/** Foto */
-.foto {
-    max-width: 100%;
-    margin: 10px 0;
-}
+/** CONTENITORI */
 
-/** Data */
-.data {
-    font-size: 0.9rem;
-    font-family: "Sometype Mono", monospace;
+    /** CARD */
+    .card {
+        flex-basis: 80%;
+        margin: 0 auto;
+    }
+
 }
